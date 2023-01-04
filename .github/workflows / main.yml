@@ -1,6 +1,8 @@
 name: Deploy 🚀 to Google Cloud Run (☁🏃)
 
 on:
+  workflow-dispatch:
+
   push:
     branches:
       - master
@@ -9,7 +11,7 @@ jobs:
   deploy:
     name: Deploying 🚀
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'update')"
+    # if: "contains(github.event.head_commit.message, 'update')"
     steps:
       # Checkout the repository to the GitHub Actions runner
       - name: Checkout
