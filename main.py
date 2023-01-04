@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "Hello World! I am running on Google Cloud Run"
+    return "Hello World! I am running on Google Cloud Run Version 2"
 
 
 if __name__ == "__main__":
