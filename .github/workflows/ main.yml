@@ -17,13 +17,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setting up
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY_JSON }}
+
+      - name: Setting up gcloud CLI (🔧)
         # Setup gcloud CLI
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@v1.0.1
         with:
           version: "412.0.0"
-          service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
-          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          # service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
+          # service_account_email: ${{ secrets.GCP_SA_EMAIL }}
           project_id: ${{ secrets.PROJECT_ID }}
 
       # Build and push image to Google Container Registry
@@ -34,10 +39,10 @@ jobs:
 
       - name: Deploy (🚀)
         # Deploy to Cloud Run
-        uses: google-github-actions/deploy-cloudrun@main
+        uses: google-github-actions/deploy-cloudrun@v1.0.0
         with:
           service: ${{ secrets.SERVICE_ID }}
           image: gcr.io/${{ secrets.PROJECT_ID }}/${{ secrets.SERVICE_ID }}
           region: ${{ secrets.GCP_REGION }}
-          credentials: ${{ secrets.GCP_SA_KEY_JSON }}
+          # credentials: ${{ secrets.GCP_SA_KEY_JSON }}
           project_id: ${{ secrets.PROJECT_ID }}
