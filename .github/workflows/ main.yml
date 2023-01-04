@@ -1,4 +1,4 @@
-name: Deploy 🚀 to Google Cloud Run (☁🏃)
+name: Deploy 🚀 to Google Cloud Run ☁🏃
 
 on:
   workflow_dispatch:
@@ -14,10 +14,11 @@ jobs:
     # if: "contains(github.event.head_commit.message, 'update')"
     steps:
       # Checkout the repository to the GitHub Actions runner
-      - name: Checkout
+      - name: Checkout 🛎
         uses: actions/checkout@v3
 
-      - id: "auth"
+      - name: Authenticate to Google Cloud 🔑
+        id: "auth"
         uses: "google-github-actions/auth@v1"
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY_JSON }}
@@ -30,12 +31,12 @@ jobs:
           project_id: ${{ secrets.PROJECT_ID }}
 
       # Build and push image to Google Container Registry
-      - name: Building (🏗)
+      - name: Build and push image to Google Container Registry 🏗
         run: |-
           gcloud builds submit \
             --tag gcr.io/${{ secrets.PROJECT_ID }}/${{ secrets.SERVICE_ID }}
 
-      - name: Deploy (🚀)
+      - name: Deploy Cloud Run 🚀
         # Deploy to Cloud Run
         id: deploy
         uses: google-github-actions/deploy-cloudrun@v1.0.0
@@ -45,6 +46,6 @@ jobs:
           region: ${{ secrets.GCP_REGION }}
           project_id: ${{ secrets.PROJECT_ID }}
 
-      - name: "Use output"
+      - name: Use Cloud Run service URL 🔗
         # Use the output from the deploy-cloudrun step
         run: 'curl "${{ steps.deploy.outputs.url }}"'
