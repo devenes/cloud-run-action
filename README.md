@@ -41,7 +41,16 @@ The following tools were used in this project:
 
 ## :white_check_mark: Requirements
 
-Before starting :checkered_flag:, you need to have [Google Cloud](https://cloud.google.com/) account and required service account key.
+Before starting :checkered_flag:, you need to have [Google Cloud](https://cloud.google.com/) account and the service account with the required roles.
+
+## 🔐 Authorization
+
+You will need to authenticate to Google Cloud as a service account with the following roles:
+
+- Cloud Run Admin
+- Cloud Build Service Account
+- Cloud Run Service Agent
+- Viewer
 
 ## :checkered_flag: Starting
 
