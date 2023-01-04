@@ -3,10 +3,10 @@ FROM golang:1.19-alpine as builder
 WORKDIR /app
 
 COPY go.* ./
-COPY *.html ./
 
 RUN go mod download
 
+COPY *.html ./
 COPY *.go ./
 
 RUN go build -o /web-app
