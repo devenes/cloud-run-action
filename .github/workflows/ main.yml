@@ -1,7 +1,7 @@
 name: Deploy 🚀 to Google Cloud Run (☁🏃)
 
 on:
-  workflow-dispatch:
+  workflow_dispatch:
 
   push:
     branches:
