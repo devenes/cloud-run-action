@@ -3,7 +3,7 @@ FROM golang:1.19-alpine as builder
 WORKDIR /app
 
 COPY go.* ./
-COPY .html ./
+COPY *.html ./
 
 RUN go mod download
 
