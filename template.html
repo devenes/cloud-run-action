@@ -3,23 +3,33 @@
 
 <head>
     <title>Devenes Runner</title>
+    <!-- This is the title of the webpage -->
 </head>
 
 <body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- This is a reference to the jQuery library -->
 
     <div style="text-align: center">
         <h1>Welcome to Devenes World!</h1>
+        <!-- This is the main heading of the webpage -->
 
         <img src="https://raw.githubusercontent.com/devenes/cloud-run-action/master/run.png" alt="Devenes Runner" />
+        <!-- This is an image of Devenes Runner -->
     </div>
 
-    <button id="my-button">Click me!</button>
+    <div style="text-align: center;">
+        <button id="my-button">Click me!</button>
+        <!-- This is a button element with id "my-button" -->
+    </div>
 
     <script>
         $(function () {
             $("#my-button").click(function () {
                 alert("Welcome to Cloud Run app!");
+                /* This is a jQuery event handler for the button.
+                When the button is clicked, an alert box will display 
+                the message "Welcome to Cloud Run app!" */
             });
         });
     </script>

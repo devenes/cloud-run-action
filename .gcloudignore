@@ -1,3 +1,9 @@
+# to see more details about the gcloudignore topic:
+# gcloud topic gcloudignore
+# to see more details about the files that will be uploaded:
+# gcloud meta list-files-for-upload
 .gcloudignore
 .git
 .gitignore
+README.md
+LICENSE

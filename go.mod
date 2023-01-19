@@ -1,3 +1,3 @@
-module hellogohttp/m/v2
+module devenes
 
 go 1.19
