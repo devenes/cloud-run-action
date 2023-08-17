@@ -1,6 +1,6 @@
 <div align="center" id="top">
 
-![cloud run](run.png)
+![cloud run](.github/run.png)
 
 </div>
 
